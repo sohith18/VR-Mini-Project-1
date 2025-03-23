@@ -270,14 +270,15 @@ pip install tensorflow numpy matplotlib
 - The best validation loss and corresponding accuracy printed at the end.
 
 
-## Comparison among different models
-- **SVM(Part A)**
-  - **Validation Accuracy:** 96.70%
-  - **Validation Loss:** 0.0714
+## Comparison among Different Models
 
-- **MLP(Part A)**
-  - **Validation Accuracy:** 98.17%
-  - **Validation Loss:** 0.0714  
+- **SVM (Part A)**
+  - **Validation Accuracy:** 90.72%
+  - **Validation Loss:** 0.1152
+
+- **MLP (Part A)**
+  - **Validation Accuracy:** 94.63%
+  - **Validation Loss:** 0.0897  
 
 - **Custom CNN (Part B):**
   - **Validation Accuracy:** 98.41%
@@ -285,9 +286,12 @@ pip install tensorflow numpy matplotlib
 
 - **Pretrained VGG16 (Part B Optional):**
   - **Validation Accuracy:** 99.76%
-  - **Validation Loss:** 0.
+  - **Validation Loss:** 0.0582
   
-The superior performance of the pretrained VGG16 (99.76% accuracy) compared to the custom CNN (98.41%), MLP (98.17%), and SVM (96.70%) suggests that the dataset does contain spatial features that benefit from deep convolutional feature extraction. The difference likely arises from VGG16's extensive pretraining on large-scale image datasets (e.g., ImageNet), enabling it to learn richer and more transferable feature representations, which a custom made CNN with 9 layers may struggle to capture effectively. The CNN performed worse than VGG16 because it was trained from scratch, lacking the rich, hierarchical feature representations learned from large-scale datasets. VGG16's pretrained filters capture low- to high-level spatial patterns, leading to superior feature extraction and generalization. The CNN only slightly outperformed the MLP because its learned filters may not have been sufficiently deep or diverse to extract meaningful spatial features, making its performance closer to that of a fully connected network. Additionally, increasing the number of blocks in the custom CNN significantly raises the number of trainable parameters, causing excessive computational demands that exceed the GPU’s capacity, further limiting model performance.
+The superior performance of the pretrained VGG16 (99.76% accuracy) compared to the custom CNN (98.41%), MLP (94.63%), and SVM (90.72%) suggests that the dataset contains spatial features that benefit from deep convolutional feature extraction. The performance difference likely arises from VGG16’s extensive pretraining on large-scale image datasets (e.g., ImageNet), enabling it to learn richer and more transferable feature representations. In contrast, the custom CNN was trained from scratch, lacking these hierarchical representations, which limited its performance.
+
+The CNN outperformed the MLP, indicating that convolutional filters helped extract meaningful spatial patterns, but its advantage was not as pronounced as VGG16’s due to the absence of pretraining. SVM performed the worst, as it lacks the ability to capture complex spatial dependencies. Additionally, increasing the number of layers in the custom CNN raises the number of trainable parameters, leading to excessive computational demands that may exceed GPU capacity, further limiting its effectiveness.
+
 
 
 # Segmentation and IoU Evaluation Project
