@@ -361,6 +361,4 @@ The model's performance was evaluated using the IoU metric. The following observ
 3. Run cells: Run the cells related to Part C in the notebook `Part_C_D.ipynb`.
 4. Results will be stored in `saved_results/`, and sample visualizations will be displayed.
 
-## Conclusion
-This project provides an efficient approach to object segmentation using classical computer vision techniques. Future improvements may involve deep learning models like U-Net to enhance segmentation accuracy.
 
