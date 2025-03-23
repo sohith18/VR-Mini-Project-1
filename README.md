@@ -1,4 +1,4 @@
-# Image Classification using handcrafted features passed through SVM and MLP
+# Image Classification using handcrafted features passed through SVM and MLP(Part A)
 
 ## Dataset
 The dataset is organized into two subdirectories: "without_mask" and "with_mask."
