@@ -89,8 +89,8 @@ To determine the best configuration, multiple hyperparameters were tested, and t
 - As training for `200` epochs provided the lowest validation loss and highest accuracy, it was chosen for the final model.
 
 ### Validation Accuracy and Loss Graphs
-![Validation Accuracy](path/to/validation_accuracy.png)
-![Validation Loss](path/to/validation_loss.png)
+![Validation Accuracy](assets/Part_B_ta_va.png)
+![Validation Loss](assets/Part_B_graphs.png)
 
 ## Results
 - **Final Model Performance:**
