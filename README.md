@@ -236,8 +236,8 @@ Since Adam provided a significantly lower validation loss and higher accuracy th
   - Batch size `16` was chosen due to memory constraints.
 
 ### Validation Accuracy and Loss Graphs
-![Validation Accuracy](path/to/validation_accuracy.png)
-![Validation Loss](path/to/validation_loss.png)
+![Validation Accuracy](assets/Part_B_op_ta_va.png)
+![Validation Loss](assets/Part_B_op_graphs.png)
 
 ## Observations and Analysis
 - **Insights Gained:** The pretrained VGG16 model significantly improved performance compared to training a model from scratch. Lower learning rates helped in better generalization, while Adam proved to be a superior optimizer for stability.
