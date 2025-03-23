@@ -140,10 +140,7 @@ pip install tensorflow numpy matplotlib
 
 ### Steps to Execute
 1. **Prepare Dataset:** Place your dataset in a directory named `dataset/`.
-2. **Run Training:**
-   ```bash
-   python script.py
-   ```
+2. **Run Training:** Run the cells related to Part B in the notebook `Part_A_B.ipynb`.
 3. **Results:** The training and validation accuracy/loss plots will be displayed.
 4. **Modify Hyperparameters:** Edit the script to test different configurations.
 
@@ -263,10 +260,7 @@ pip install tensorflow numpy matplotlib
 
 ### Steps to Execute
 1. **Prepare Dataset:** Place your dataset in a directory named `dataset/`.
-2. **Run Training:**
-   ```bash
-   python script.py
-   ```
+2. **Run Training:** Run the cells related to Part B(optional) in the notebook `Part_A_B.ipynb`.
 3. **Results:** The training and validation accuracy/loss plots will be displayed.
 4. **Modify Hyperparameters:** Edit the script to test different configurations.
 
@@ -364,10 +358,7 @@ The model's performance was evaluated using the IoU metric. The following observ
        ├── face_crop/
        ├── face_crop_segmentation/
    ```
-3. Run the script:
-   ```sh
-   python segmentation_script.py
-   ```
+3. Run cells: Run the cells related to Part C in the notebook `Part_C_D.ipynb`.
 4. Results will be stored in `saved_results/`, and sample visualizations will be displayed.
 
 ## Conclusion
