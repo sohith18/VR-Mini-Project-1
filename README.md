@@ -341,6 +341,10 @@ The model's performance was evaluated using the IoU metric. The following observ
 - IoU scores were computed for all images in the dataset.
 - The final **mean IoU** across all images was **27.27**.
 - Visualized segmentation results highlight the effectiveness of the approach.
+![Predicted Images](assets/Figure_2.png)
+![Predicted Images](assets/Figure_3.png)
+![Predicted Images](assets/Figure_9.png)
+![Predicted Images](assets/Figure_10.png)
 
 ## Observations and Analysis
 - **Challenges Faced:**
