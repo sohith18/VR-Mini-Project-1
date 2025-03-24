@@ -149,12 +149,6 @@ pip install tensorflow numpy matplotlib
 - A graph showing training/validation accuracy and loss over epochs.
 - The best validation loss and corresponding accuracy printed at the end.
 
-This project provides a robust baseline CNN model for image classification, with options for tuning and experimenting further.
-
-
-
-
-
 
 # Image Classification using Pretrained VGG16(PartB Optional)
 
