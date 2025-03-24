@@ -431,6 +431,22 @@ In my machine, the UNet took a very long time to train (~20 hours for 40 epochs)
 ## Results and Observations
 The final training loss was 0.19 and the test loss was 0.21. Both train loss and test loss  decrease steadily over 40 epochs, indicating proper learning. Sharp decline in the first 5 epochs, suggesting fast convergence at the beginning. After 20 epochs, loss values stabilize, with test loss fluctuating slightly. No major divergence between train and test loss, meaning overfitting is minimal.
 
+## How to Run the Code
+1. Install required dependencies:
+   ```sh
+   pip install -r partd_requirements.txt
+   ```
+2. Ensure the file structure is correct:
+   ```
+   MSFD/
+   ├── 1/
+       ├── face_crop/
+       ├── face_crop_segmentation/
+   dataset.py
+   ```
+3. Run cells: Run the cells related to Part D in the notebook `Part_C_D.ipynb`.
+4. The model and plot will be stored in `output/` and sample visualizations in `output/predictions`.
+
 
 
 
