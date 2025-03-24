@@ -415,6 +415,24 @@ The evaluation process:
 4. Calculates **Intersection over Union (IoU)** for each test image.
 5. Prints the **average IoU score** over the dataset.
 
+![Predicted Images](assets/image_0.png)
+![Predicted Images](assets/image_1.png)
+![Predicted Images](assets/image_4.png)
+
+## Hyperparameter Tuning
+In my machine, the UNet took a very long time to train (~20 hours for 40 epochs). So I could not perform a lot of hyperparameter tuning. I got the best average IOU score of 0.738 for `learning rate = 0.01`, `batch size = 32` and `epochs = 40`. Here are the average IOU scores for some other parameters.
+
+| **Configuration**       | **Learning Rate** | **Epochs** | **Batch Size** | **Average IoU Score** | **Reason for Drop** |
+|------------------------|------------------|------------|--------------|------------------|------------------|
+| **Higher Learning Rate** | `0.01` | `40` | `32` | **0.712** | Too aggressive, unstable training |
+| **Larger Batch Size**   | `0.001` | `40` | `64` | **0.734** | Less generalization, worse segmentation |
+| **Shallower Network**   | `0.001` | `40` | `32` | **0.715** | Fewer encoder levels, weak feature extraction |
+
+## Results and Observations
+The final training loss was 0.19 and the test loss was 0.21. Both train loss and test loss  decrease steadily over 40 epochs, indicating proper learning. Sharp decline in the first 5 epochs, suggesting fast convergence at the beginning. After 20 epochs, loss values stabilize, with test loss fluctuating slightly. No major divergence between train and test loss, meaning overfitting is minimal.
+
+
+
 
 
 
