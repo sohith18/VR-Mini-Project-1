@@ -365,4 +365,63 @@ The model's performance was evaluated using the IoU metric. The following observ
 3. Run cells: Run the cells related to Part C in the notebook `Part_C_D.ipynb`.
 4. Results will be stored in `saved_results/`, and sample visualizations will be displayed.
 
+# Image Segmentation using UNet
+
+## Architecture
+
+| Layer Name      | Type                  | Input Channels | Output Channels | Kernel Size | Stride | Padding |
+|----------------|-----------------------|---------------|----------------|-------------|--------|---------|
+| **Encoder**    | -                      | -             | -              | -           | -      | -       |
+| Block 1        | Conv2D + ReLU + Conv2D | 3             | 16             | 3x3         | 1      | 1       |
+| Pool 1         | MaxPool2D              | 16            | 16             | 2x2         | 2      | 0       |
+| Block 2        | Conv2D + ReLU + Conv2D | 16            | 32             | 3x3         | 1      | 1       |
+| Pool 2         | MaxPool2D              | 32            | 32             | 2x2         | 2      | 0       |
+| Block 3        | Conv2D + ReLU + Conv2D | 32            | 64             | 3x3         | 1      | 1       |
+| Pool 3         | MaxPool2D              | 64            | 64             | 2x2         | 2      | 0       |
+| **Decoder**    | -                      | -             | -              | -           | -      | -       |
+| Upconv 1       | ConvTranspose2D        | 64            | 32             | 2x2         | 2      | 0       |
+| Block 4        | Conv2D + ReLU + Conv2D | 64 (32+32)    | 32             | 3x3         | 1      | 1       |
+| Upconv 2       | ConvTranspose2D        | 32            | 16             | 2x2         | 2      | 0       |
+| Block 5        | Conv2D + ReLU + Conv2D | 32 (16+16)    | 16             | 3x3         | 1      | 1       |
+| **Output**     | -                      | -             | -              | -           | -      | -       |
+| Final Conv     | Conv2D                 | 16            | nbClasses (1)  | 1x1         | 1      | 0       |
+| Interpolation  | Bilinear Interpolation | nbClasses (1) | nbClasses (1)  | -           | -      | -       |
+
+## Training Pipeline
+This repository includes a complete training pipeline for U-Net. The training process:
+1. Loads and sorts image/mask file paths.
+2. Splits data into **80% training** and **20% testing**.
+3. Saves test image paths for evaluation.
+4. Applies transformations to images and masks (converts to 128 x 128).
+5. Creates PyTorch **datasets** and **data loaders**.
+6. Initializes the **U-Net model, optimizer (Adam), and loss function (BCEWithLogitsLoss)**.
+7. Trains the model over multiple epochs, computing and saving **train/test loss**.
+8. Plots loss curves and saves the trained model.
+
+## Custom Dataset
+This repository includes a `SegmentationDataset` class for loading image segmentation data. The dataset:
+- Takes lists of image and mask file paths.
+- Reads images using OpenCV and converts them to RGB.
+- Loads masks in grayscale.
+- Supports custom transformations for both images and masks.
+
+## Evaluation Pipeline
+The evaluation process:
+1. Loads a trained U-Net model and test image paths.
+2. Computes **predictions** for some randomly selected test images.
+3. Saves the predicted masks alongside original images and ground truth masks.
+4. Calculates **Intersection over Union (IoU)** for each test image.
+5. Prints the **average IoU score** over the dataset.
+
+
+
+
+
+
+
+
+
+
+
+
 
