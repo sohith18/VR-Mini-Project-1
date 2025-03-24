@@ -39,7 +39,7 @@ pip install opencv-python numpy pandas scikit-image scikit-learn
 - Final Model Performance:
   SVM Classifier:
     - Hyperparameters: kernel- linear kernel is chosen.
-    - Performance metrics on the 20% test set:
+    - Performance metrics on the 20% validation set:
         - Accuracy: 90.72%
         - Precision: 90.56%
         - Recall: 90.72%
@@ -48,7 +48,7 @@ pip install opencv-python numpy pandas scikit-image scikit-learn
     - Hyperparameters:
       - hidden_layer_sizes - 100
       - max_iter - 500
-    - Performance metrics on the 20% test set:
+    - Performance metrics on the 20% validation set:
         - Accuracy: 94.63%
         - Precision: 94.76%
         - Recall: 94.38%
