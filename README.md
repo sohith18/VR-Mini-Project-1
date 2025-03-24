@@ -506,6 +506,12 @@ Traditional segmentation methods like thresholding and edge detection rely on fi
 
 In contrast, U-Net leverages deep learning to automatically learn hierarchical features, making it far more effective at recognizing object boundaries and handling variations in texture, illumination, and occlusion. Its encoder-decoder structure, combined with skip connections, ensures both fine details and global context are preserved, leading to significantly higher accuracy (IoU: 0.738). Additionally, U-Net is more robust to noise and adapts better to different datasets, making it a superior choice for real-world image segmentation tasks.
 
+### Contribution  
+- **Part A** - M V Chirag (IMT2022583)  
+- **Part B & C** - Sai Venkata Sohith Gutta (IMT2022042)  
+- **Part D** - Maramreddy Siddharth Reddy (IMT2022031)  
+
+
 
 
 
