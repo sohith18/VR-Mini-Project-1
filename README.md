@@ -317,9 +317,8 @@ The following steps were performed for segmentation and evaluation:
    - **Load the ground truth mask:** The corresponding segmentation mask is read and thresholded to ensure binary values (0 or 255).
    - **Resize the generated mask:** The extracted segmentation mask is resized using **nearest-neighbor interpolation** to match the dimensions of the ground truth mask.
    - **Compute IoU:** IoU is calculated as:
-     \[
-     IoU = \frac{\text{Intersection (overlapping pixels)}}{\text{Union (total covered pixels)}}
-     \]
+     IoU = Intersection (overlapping pixels) / Union (total covered pixels)
+     
      where intersection is the number of pixels common between both masks, and union is the total number of pixels covered by at least one mask.
 
 ### **Results Storage & Visualization**
