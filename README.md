@@ -32,7 +32,7 @@ pip install opencv-python numpy pandas scikit-image scikit-learn
         - lbp_radius - 1
 
 ### Model Training
-- A Support Vector Machine (SVM) classifier with a linear kernel is trained and evaluated on the test data, achieving an accuracy of 90.72%.
+- A Support Vector Machine (SVM) classifier with a linear kernel is trained and evaluated on the validation data, achieving an accuracy of 90.72%.
 - A Multi-Layer Perceptron (MLP) classifier with 100 neurons in the hidden layer is trained and evaluated for 500 iterations, achieving an accuracy of 94.63%.
 
 ### Results
