@@ -398,6 +398,8 @@ This repository includes a complete training pipeline for U-Net. The training pr
 7. Trains the model over multiple epochs, computing and saving **train/test loss**.
 8. Plots loss curves and saves the trained model.
 
+![Training and Validation Loss](assets/plot.png)
+
 ## Custom Dataset
 This repository includes a `SegmentationDataset` class for loading image segmentation data. The dataset:
 - Takes lists of image and mask file paths.
