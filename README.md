@@ -1,4 +1,4 @@
-# Image Classification using handcrafted features passed through SVM and MLP(Part A)
+# Image Classification using handcrafted features trained and evaluated for SVM and MLP
 
 ## Dataset
 The dataset is organized into two subdirectories: "without_mask" and "with_mask."
@@ -8,13 +8,63 @@ The dataset is organized into two subdirectories: "without_mask" and "with_mask.
 - The "with_mask" directory contains images of faces wearing masks.
 
 ## Methodology
+### Prerequisites
+Ensure you have Python and the necessary dependencies installed:
+```bash
+pip install opencv-python numpy pandas scikit-image scikit-learn
+```
+
 ### Data Preprocessing
 - The image is grayscaled and the handcrafted features i.e., HOG(Histogram of Oriented Gradients) and LBP(Local Binary Pattern) features are extracted.
-- The labels are encoded using LabelEncoder() and the dataset is then split into 2 parts: 80% training and 20% validation sets.
+- The labels are encoded using LabelEncoder() and the dataset is then split into 2 parts: 80% training and 20% validation sets. Random state of 42 is chosen.
+
+### Feature Extraction
+- HOG(Histogram of Oriented Gradients) and LBP(Local Binary Pattern) features are used. The hyperparameters are:
+    - HOG
+        - image_gray - Grayscaled image
+        - orientations - 9
+        - pixels_per_cell - (8,8)
+        - cells_per_block - (2,2)
+        - feature_vector - True
+    - LBP
+        - image_gray - Grayscaled image
+        - lbp_n_points - 8
+        - lbp_radius - 1
 
 ### Model Training
 - A Support Vector Machine (SVM) classifier with a linear kernel is trained and evaluated on the test data, achieving an accuracy of 90.72%.
 - A Multi-Layer Perceptron (MLP) classifier with 100 neurons in the hidden layer is trained and evaluated for 500 iterations, achieving an accuracy of 94.63%.
+
+### Results
+- Final Model Performance:
+  SVM Classifier:
+    - Hyperparameters: kernel- linear kernel is chosen.
+    - Performance metrics on the 20% test set:
+        - Accuracy: 90.72%
+        - Precision: 90.56%
+        - Recall: 90.72%
+        - F1 score: 90.63%
+  MLP Classifier:
+    - Hyperparameters:
+      - hidden_layer_sizes - 100
+      - max_iter - 500
+    - Performance metrics on the 20% test set:
+        - Accuracy: 94.63%
+        - Precision: 94.76%
+        - Recall: 94.38%
+        - F1 score: 94.54%
+- On comparing the performance metrics of both classifiers, MLP outperformed SVM in all 4 metrics.
+- Hence, MLP is a preferred classifier over SVM for this dataset.
+
+### Steps to Execute
+1. **Prepare Dataset:** Place your dataset in a directory named `dataset/`.
+2. **Run Training:** Run the cells related to Part A in the notebook Part_A_B.ipynb.
+
+### Expected Output
+- Features and labels' shapes.
+- SVM Classifier Accuracy report and confusion matrix
+- MLP Classifier Accuracy report and confusion matrix
+- Comparison of 4 performance metrics of both classifiers, namely accuracy, precision, recall, and F1 Score.
 
 # Image Classification using Custom CNN(Part B)
 
