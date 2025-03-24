@@ -447,6 +447,17 @@ The final training loss was 0.19 and the test loss was 0.21. Both train loss and
 3. Run cells: Run the cells related to Part D in the notebook `Part_C_D.ipynb`.
 4. The model and plot will be stored in `output/` and sample visualizations in `output/predictions`.
 
+## Comparison
+
+- **Image Segmentation using Traditional Techniques (Part C)**
+  - **Average IOU Score:** 0.2727
+
+- **Image Segmentation using UNet (Part D)**
+  - **Average IOU Score:** 0.738
+
+Traditional segmentation methods like thresholding and edge detection rely on fixed rules based on pixel intensities and gradients. While these methods work well on simple, high-contrast images, they struggle with complex scenes containing noise, varying lighting, and overlapping objects. They process pixels independently and lack contextual understanding, leading to poor segmentation accuracy (IoU: 0.2727).
+
+In contrast, U-Net leverages deep learning to automatically learn hierarchical features, making it far more effective at recognizing object boundaries and handling variations in texture, illumination, and occlusion. Its encoder-decoder structure, combined with skip connections, ensures both fine details and global context are preserved, leading to significantly higher accuracy (IoU: 0.738). Additionally, U-Net is more robust to noise and adapts better to different datasets, making it a superior choice for real-world image segmentation tasks.
 
 
 
