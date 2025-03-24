@@ -294,7 +294,7 @@ The CNN outperformed the MLP, indicating that convolutional filters helped extra
 
 
 
-# Segmentation and IoU Evaluation Project
+# Image Segmentation using Traditional Techniques (Part C)
 
 ## Introduction
 This part of project focuses on image segmentation and evaluates the performance of the segmentation using the Intersection over Union (IoU) metric. The goal is to extract the best contour from an image and compare it against a ground truth mask to assess segmentation accuracy. Specifically, this project aims to extract masks for faces identified as "with masks" using traditional segmentation techniques such as thresholding and morphological operations. The segmentation process helps in identifying the masked regions in facial images, providing a structured approach for evaluation.
@@ -365,7 +365,7 @@ The model's performance was evaluated using the IoU metric. The following observ
 3. Run cells: Run the cells related to Part C in the notebook `Part_C_D.ipynb`.
 4. Results will be stored in `saved_results/`, and sample visualizations will be displayed.
 
-# Image Segmentation using UNet
+# Image Segmentation using UNet (Part D)
 
 ## Architecture
 
