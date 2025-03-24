@@ -296,30 +296,30 @@ The CNN outperformed the MLP, indicating that convolutional filters helped extra
 
 # Segmentation and IoU Evaluation Project
 
-## i. Introduction
+## Introduction
 This part of project focuses on image segmentation and evaluates the performance of the segmentation using the Intersection over Union (IoU) metric. The goal is to extract the best contour from an image and compare it against a ground truth mask to assess segmentation accuracy. Specifically, this project aims to extract masks for faces identified as "with masks" using traditional segmentation techniques such as thresholding and morphological operations. The segmentation process helps in identifying the masked regions in facial images, providing a structured approach for evaluation.
 
-## ii. Dataset
+## Dataset
 - **Source:** The dataset consists of images stored in `MSFD/1/face_crop` and corresponding ground truth segmentation masks in `MSFD/1/face_crop_segmentation`.
 - **Structure:**
   - `face_crop/` contains original face images.
   - `face_crop_segmentation/` contains binary segmentation masks for the corresponding images.
 
-## iii. Methodology
+## Methodology
 The following steps were performed for segmentation and evaluation:
 
-### 1. **Preprocessing**
+### **Preprocessing**
    - **Convert to grayscale:** Convert the original RGB image to a single-channel grayscale image to simplify processing.
    - **Apply Gaussian Blur:** A **3x3 Gaussian kernel** is used to smooth the image and reduce noise before thresholding.
    - **Thresholding:** Otsu’s thresholding is applied to separate the object (masked face) from the background by automatically determining the optimal threshold value.
    - **Morphological Closing:** A **5x5 structuring element** (kernel) is used to perform morphological closing, which helps to fill small holes and gaps in the detected mask.
 
-### 2. **Contour Extraction**
+### **Contour Extraction**
    - **Find contours:** Contours are extracted using `cv.findContours` with the `RETR_EXTERNAL` mode, which retrieves only the outermost contours.
    - **Select the largest contour:** Contours are sorted by area, and the largest contour is assumed to represent the masked face region.
    - **Draw the selected contour:** A blank mask of size **256x256 pixels** is created, and the largest contour is drawn onto it to obtain the final segmented region.
 
-### 3. **IoU Calculation**
+### **IoU Calculation**
    - **Load the ground truth mask:** The corresponding segmentation mask is read and thresholded to ensure binary values (0 or 255).
    - **Resize the generated mask:** The extracted segmentation mask is resized using **nearest-neighbor interpolation** to match the dimensions of the ground truth mask.
    - **Compute IoU:** IoU is calculated as:
@@ -328,7 +328,7 @@ The following steps were performed for segmentation and evaluation:
      \]
      where intersection is the number of pixels common between both masks, and union is the total number of pixels covered by at least one mask.
 
-### 4. **Results Storage & Visualization**
+### **Results Storage & Visualization**
    - **Save segmented masks:** The extracted segmentation masks are stored in the `saved_results/` directory with filenames prefixed by `segmented_`.
    - **Random sample visualization:** 10 random images are selected for visualization, displaying:
      - **Original image** (RGB format)
@@ -336,13 +336,13 @@ The following steps were performed for segmentation and evaluation:
      - **Generated segmentation mask** (grayscale with IoU score overlayed)
    - **Display output using Matplotlib:** The results are displayed in a 3-column subplot format for side-by-side comparison.
 
-## iv. Results
+## Results
 The model's performance was evaluated using the IoU metric. The following observations were made:
 - IoU scores were computed for all images in the dataset.
 - The final **mean IoU** across all images was **27.27**.
 - Visualized segmentation results highlight the effectiveness of the approach.
 
-## v. Observations and Analysis
+## Observations and Analysis
 - **Challenges Faced:**
   - Some images had weak contour detection due to lighting variations.
   - Small object regions were sometimes excluded in thresholding.
@@ -350,7 +350,7 @@ The model's performance was evaluated using the IoU metric. The following observ
   - Fine-tuning morphological operations improved segmentation.
   - Alternative edge detection techniques (Canny, Sobel) were explored but not used in the final method.
 
-## vi. How to Run the Code
+## How to Run the Code
 1. Install required dependencies:
    ```sh
    pip install opencv-python numpy matplotlib
